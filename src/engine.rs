@@ -10,10 +10,7 @@ pub fn run_transactions(args: &[String]) -> Result<(), Error> {
     let mut reader = Reader::from_path(&args[1])?;
     for result in reader.deserialize() {
         let record: Transaction = result?;
-        match process_transaction(record, &mut transactions, &mut accounts) {
-            Ok(_) => {}
-            Err(_) => {}
-        };
+        process_transaction(record, &mut transactions, &mut accounts).unwrap();
     }
     println!("client, available, held, total, locked");
     for (_, account) in accounts.iter() {
