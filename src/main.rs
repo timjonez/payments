@@ -1,10 +1,10 @@
 use payments::run_transactions;
-use std::env;
+use std::{env, process};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    match run_transactions(&args) {
-        Ok(_) => {}
-        Err(err) => println!("Error: {}", err),
+    if let Err(err) = run_transactions(&args) {
+        eprintln!("Error: {}", err);
+        process::exit(1)
     }
 }
