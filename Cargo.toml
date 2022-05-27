@@ -1,0 +1,10 @@
+[package]
+name = "payments"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tim Jones <tim.a.jones@protonmail.com>"]
+
+
+[dependencies]
+csv = "1.1"
+serde = { version = "1", features = ["derive"] }
